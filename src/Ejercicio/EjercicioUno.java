@@ -29,7 +29,18 @@ import java.util.List;
  */
 public class EjercicioUno {
 
-    // List<List<Integer>> subsets(List<Integer> set) {
-
-    // }
+    public List<List<Integer>> subsets(List<Integer> set) {
+        int tamanio = set.size();
+        List<List<Integer>> result = new ArrayList<>();
+        for (int i = 0; i < (1<<tamanio); i++) {
+            List<Integer> subset = new ArrayList<>();
+            for (int j = 0; j < tamanio; j++) {
+                if ((i&(1<<j))>0) {
+                    subset.add(set.get(j));
+                }
+            }
+            result.add(subset);
+        }
+        return result;
+    }
 }
